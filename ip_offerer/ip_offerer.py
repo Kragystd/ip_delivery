@@ -8,10 +8,11 @@ ip发送端：部署在需要被远程访问的主机上。运行“refresh_ip_o
 """
 
 
-def offer_ip(server_url: str, sleep_time: int):
+def offer_ip(server_url: str, desktop_name: str, sleep_time: int):
     """
     向服务器以sleep_time为间隔发送本机ip
     :param server_url:服务器url
+    :param desktop_name:主机名
     :param sleep_time:间隔时间
     """
 
@@ -29,7 +30,7 @@ def offer_ip(server_url: str, sleep_time: int):
     # 间隔一定时间向服务器发送本机ip
     while True:
         try:
-            con1 = requests.get(server_url + 'offerip?ip=' + ip).content.decode()
+            con1 = requests.get(server_url + 'offerip?ip=' + ip + '&desktop_name=' + desktop_name).content.decode()
             print(con1)
             time.sleep(sleep_time)
         except:
@@ -37,6 +38,7 @@ def offer_ip(server_url: str, sleep_time: int):
 
 
 if __name__ == '__main__':
-    server_url = 'http://kragy.cn:5002'  # 更改为需要部署的服务器的url
+    server_url = 'http://10.145.78.160:5002/'  # 更改为需要部署的服务器的url
+    desktop_name = 'Y7000P'  # 更改为本机名称（自定义）
     sleep_time = 600  # 发送间隔
-    offer_ip(server_url, sleep_time)
+    offer_ip(server_url, desktop_name, sleep_time)
