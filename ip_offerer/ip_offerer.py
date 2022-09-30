@@ -4,7 +4,7 @@ import re
 import time
 
 """
-ip发送端：部署在需要被远程访问的主机上。运行“refresh_ip_offerer.bat”将该源码打包为“ip_offerer.exe”，并手动将ip_offerer.exe设为开机启动项。其将会间隔一段时间向服务器发送本机ip地址。
+ip提供端：部署在需要被远程访问的主机上。运行“refresh_ip_offerer.bat”将该源码打包为“ip_offerer.exe”，并手动将ip_offerer.exe设为开机启动项。其将会间隔一段时间向服务器发送本机ip地址。
 """
 
 
@@ -38,7 +38,7 @@ def offer_ip(server_url: str, desktop_name: str, sleep_time: int):
 
 
 if __name__ == '__main__':
-    server_url = 'http://10.145.78.160:5002/'  # 更改为需要部署的服务器的url
+    server_url = 'http://10.132.245.202:5002/'  # 更改为需要部署的服务器的url
     desktop_name = 'Y7000P'  # 更改为本机名称（自定义）
     sleep_time = 600  # 发送间隔
     offer_ip(server_url, desktop_name, sleep_time)
